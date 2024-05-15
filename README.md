@@ -2,6 +2,8 @@
 
 **tiny** is small text editor written in C. This is a work in progess, more functionalities to be added soon :)
 
+**tiny** is not dependent of any library and uses VT100 (and similar terminals) escape sequences.
+
 
 ## Usage
 
@@ -27,7 +29,6 @@ Edit an existing file by running `tiny` with the filename as a command-line argu
     CTRL-Q: Quit
     CTRL-F: Find string in file (ESC to exit search, arrows to navigate)
 
-**tiny** is not dependent of any library and uses VT100 (and similar terminals) escape sequences.
 
 ## License
 
