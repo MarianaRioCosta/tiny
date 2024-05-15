@@ -98,22 +98,224 @@ struct editorConfig E;
 /*** filetypes ***/
 
 char *C_HL_extensions[] = { ".c", ".h", ".cpp", NULL };
-char *C_HL_keywords[] = {
-  "switch", "if", "while", "for", "break", "continue", "return", "else",
-  "struct", "union", "typedef", "static", "enum", "class", "case",
+char* JAVA_HL_extensions[] = {".java", NULL};
+char* PYTHON_HL_extensions[] = {".py",".pyw",".py3",".pyc",".pyo", ".sage", NULL};
+char* BASH_HL_extensions[] = {".sh", NULL};
+char* JS_HL_extensions[] = {".js", ".jsx", NULL};
+char* PHP_HL_extensions[] = {".php",".phtml", NULL};
+char* JSON_HL_extensions[] = {".json", ".jsonp", NULL};
+char* XML_HL_extensions[] = {".xml", NULL};
+char* SQL_HL_extensions[] = {".sql", NULL};
+char* RUBY_HL_extensions[] = {".rb", NULL}; 
 
-  "int|", "long|", "double|", "float|", "char|", "unsigned|", "signed|",
-  "void|", NULL
+char* C_HL_keywords[] = {
+    "switch", "if", "while", "for", "break", "continue", "return", "else",
+    "struct", "union", "typedef", "static", "enum", "case", "#include",
+    "volatile", "register", "sizeof", "typedef", "union", "goto", "const", "auto",
+    "#define", "#if", "#endif", "#error", "#ifdef", "#ifndef", "#undef",
+    "asm" /* in stdbool.h  */ , "bool" , "true" , "fasle" , "inline" ,
+    
+    // C++
+    "class" , "namespace" , "using" , "catch" , "delete" , "explicit" ,
+    "export" , "friend" , "mutable" , "new" , "public" , "protected" ,
+    "private" , "operator" , "this" , "template" , "virtual" , "throw" ,
+    "try" , "typeid" ,
+
+    "int|", "long|", "double|", "float|", "char|", "unsigned|", "signed|",
+    "void|", "bool|", NULL
+};
+
+char* JAVA_HL_keywords[] = {
+    "switch", "if", "while", "for", "break", "continue", "return", "else",
+    "in", "public", "private", "protected", "static", "final", "abstract",
+    "enum", "class", "case", "try", "catch", "do", "extends", "implements",
+    "finally", "import", "instanceof", "interface", "new", "package", "super",
+    "native", "strictfp",
+    "synchronized", "this", "throw", "throws", "transient", "volatile",
+
+    "byte|", "char|", "double|", "float|", "int|", "long|", "short|",
+    "boolean|", NULL
+};
+
+char* PYTHON_HL_keywords[] = {
+    "and", "as", "assert", "break", "class", "continue", "def", "del", "elif",
+    "else", "except", "exec", "finally", "for", "from", "global", "if", "import",
+    "in", "is", "lambda", "not", "or", "pass", "print", "raise", "return", "try",
+    "while", "with", "yield",
+
+    "buffer|", "bytearray|", "complex|", "False|", "float|", "frozenset|", "int|",
+    "list|", "long|", "None|", "set|", "str|", "tuple|", "True|", "type|",
+    "unicode|", "xrange|", NULL
+};
+
+char* BASH_HL_keywords[] = {
+    "case", "do", "done", "elif", "else", "esac", "fi", "for", "function", "if",
+    "in", "select", "then", "time", "until", "while", "alias", "bg", "bind", "break",
+    "builtin", "cd", "command", "continue", "declare", "dirs", "disown", "echo",
+    "enable", "eval", "exec", "exit", "export", "fc", "fg", "getopts", "hash", "help",
+    "history", "jobs", "kill", "let", "local", "logout", "popd", "pushd", "pwd", "read",
+    "readonly", "return", "set", "shift", "suspend", "test", "times", "trap", "type",
+    "typeset", "ulimit", "umask", "unalias", "unset", "wait", "printf", NULL
+};
+
+char* JS_HL_keywords[] = {
+    "break", "case", "catch", "class", "const", "continue", "debugger", "default",
+    "delete", "do", "else", "enum", "export", "extends", "finally", "for", "function",
+    "if", "implements", "import", "in", "instanceof", "interface", "let", "new",
+    "package", "private", "protected", "public", "return", "static", "super", "switch",
+    "this", "throw", "try", "typeof", "var", "void", "while", "with", "yield", "true",
+    "false", "null", "NaN", "global", "window", "prototype", "constructor", "document",
+    "isNaN", "arguments", "undefined",
+
+    "Infinity|", "Array|", "Object|", "Number|", "String|", "Boolean|", "Function|",
+    "ArrayBuffer|", "DataView|", "Float32Array|", "Float64Array|", "Int8Array|",
+    "Int16Array|", "Int32Array|", "Uint8Array|", "Uint8ClampedArray|", "Uint32Array|",
+    "Date|", "Error|", "Map|", "RegExp|", "Symbol|", "WeakMap|", "WeakSet|", "Set|", NULL
+};
+
+char* PHP_HL_keywords[] = {
+    "__halt_compiler", "break", "clone", "die", "empty", "endswitch", "final", "global",
+    "include_once", "list", "private", "return", "try", "xor", "abstract", "callable",
+    "const", "do", "enddeclare", "endwhile", "finally", "goto", "instanceof", "namespace",
+    "protected", "static", "unset", "yield", "and", "case", "continue", "echo", "endfor",
+    "eval", "for", "if", "insteadof", "new", "public", "switch", "use", "array", "catch",
+    "declare", "else", "endforeach", "exit", "foreach", "implements", "interface", "or",
+    "require", "throw", "var", "as", "class", "default", "elseif", "endif", "extends",
+    "function", "include", "isset", "print", "require_once", "trait", "while", NULL
+};
+
+char* JSON_HL_keywords[] = {
+    NULL
+};
+
+char* XML_HL_keywords[] = {
+    NULL
+};
+
+char* SQL_HL_keywords[] = {
+    "SELECT", "FROM", "DROP", "CREATE", "TABLE", "DEFAULT", "FOREIGN", "UPDATE", "LOCK",
+    "INSERT", "INTO", "VALUES", "LOCK", "UNLOCK", "WHERE", "DINSTINCT", "BETWEEN", "NOT",
+    "NULL", "TO", "ON", "ORDER", "GROUP", "IF", "BY", "HAVING", "USING", "UNION", "UNIQUE",
+    "AUTO_INCREMENT", "LIKE", "WITH", "INNER", "OUTER", "JOIN", "COLUMN", "DATABASE", "EXISTS",
+    "NATURAL", "LIMIT", "UNSIGNED", "MAX", "MIN", "PRECISION", "ALTER", "DELETE", "CASCADE",
+    "PRIMARY", "KEY", "CONSTRAINT", "ENGINE", "CHARSET", "REFERENCES", "WRITE",
+
+    "BIT|", "TINYINT|", "BOOL|", "BOOLEAN|", "SMALLINT|", "MEDIUMINT|", "INT|", "INTEGER|",
+    "BIGINT|", "DOUBLE|", "DECIMAL|", "DEC|" "FLOAT|", "DATE|", "DATETIME|", "TIMESTAMP|",
+    "TIME|", "YEAR|", "CHAR|", "VARCHAR|", "TEXT|", "ENUM|", "SET|", "BLOB|", "VARBINARY|",
+    "TINYBLOB|", "TINYTEXT|", "MEDIUMBLOB|", "MEDIUMTEXT|", "LONGTEXT|",
+
+    "select", "from", "drop", "create", "table", "default", "foreign", "update", "lock",
+    "insert", "into", "values", "lock", "unlock", "where", "dinstinct", "between", "not",
+    "null", "to", "on", "order", "group", "if", "by", "having", "using", "union", "unique",
+    "auto_increment", "like", "with", "inner", "outer", "join", "column", "database", "exists",
+    "natural", "limit", "unsigned", "max", "min", "precision", "alter", "delete", "cascade",
+    "primary", "key", "constraint", "engine", "charset", "references", "write",
+
+    "bit|", "tinyint|", "bool|", "boolean|", "smallint|", "mediumint|", "int|", "integer|",
+    "bigint|", "double|", "decimal|", "dec|" "float|", "date|", "datetime|", "timestamp|",
+    "time|", "year|", "char|", "varchar|", "text|", "enum|", "set|", "blob|", "varbinary|",
+    "tinyblob|", "tinytext|", "mediumblob|", "mediumtext|", "longtext|", NULL
+};
+
+char* RUBY_HL_keywords[] = {
+    "__ENCODING__", "__LINE__", "__FILE__", "BEGIN", "END", "alias", "and", "begin", "break",
+    "case", "class", "def", "defined?", "do", "else", "elsif", "end", "ensure", "for", "if",
+    "in", "module", "next", "not", "or", "redo", "rescue", "retry", "return", "self", "super",
+    "then", "undef", "unless", "until", "when", "while", "yield", NULL
 };
 
 struct editorSyntax HLDB[] = {
-  {
-    "c",
-    C_HL_extensions,
-    C_HL_keywords,
-    "//", "/*", "*/",
-    HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
-  },
+    {
+        "c",
+        C_HL_extensions,
+        C_HL_keywords,
+        "//",
+        "/*",
+        "*/",
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "java",
+        JAVA_HL_extensions,
+        JAVA_HL_keywords,
+        "//",
+        "/*",
+        "*/",
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "python",
+        PYTHON_HL_extensions,
+        PYTHON_HL_keywords,
+        "#",
+        "'''",
+        "'''",
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "bash",
+        BASH_HL_extensions,
+        BASH_HL_keywords,
+        "#",
+        NULL,
+        NULL,
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "js",
+        JS_HL_extensions,
+        JS_HL_keywords,
+        "//",
+        "/*",
+        "*/",
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "php",
+        PHP_HL_extensions,
+        PHP_HL_keywords,
+        "//",
+        "/*",
+        "*/",
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "json",
+        JSON_HL_extensions,
+        JSON_HL_keywords,
+        NULL,
+        NULL,
+        NULL,
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "xml",
+        XML_HL_extensions,
+        XML_HL_keywords,
+        NULL,
+        NULL,
+        NULL,
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "sql",
+        SQL_HL_extensions,
+        SQL_HL_keywords,
+        "--",
+        "/*",
+        "*/",
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    },
+    {
+        "ruby",
+        RUBY_HL_extensions,
+        RUBY_HL_keywords,
+        "#",
+        "=begin",
+        "=end",
+        HL_HIGHLIGHT_NUMBERS | HL_HIGHLIGHT_STRINGS
+    }
 };
 
 #define HLDB_ENTRIES (sizeof(HLDB) / sizeof(HLDB[0]))

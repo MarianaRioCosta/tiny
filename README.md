@@ -7,12 +7,20 @@
 
 ## Usage
 
+## Installation
+
+Clone this repository and then 
+
+```
+make install
+```
+
 ### Create New File
 
 Create a new file by running `tiny` with no command-line argument.
 
 ```
-./tiny
+tiny
 ```
 
 ### Edit Existing File
@@ -20,7 +28,7 @@ Create a new file by running `tiny` with no command-line argument.
 Edit an existing file by running `tiny` with the filename as a command-line argument.
 
 ```
-./tiny tiny.c
+tiny tiny.c
 ```
 
 ## Keys:
@@ -28,6 +36,20 @@ Edit an existing file by running `tiny` with the filename as a command-line argu
     CTRL-S: Save
     CTRL-Q: Quit
     CTRL-F: Find string in file (ESC to exit search, arrows to navigate)
+
+
+## Current supported languages
+* C 
+* C++ 
+* Java
+* Bash 
+* Python 
+* PHP 
+* JavaScript 
+* JSON 
+* XML
+* SQL 
+* Ruby 
 
 
 ## License
